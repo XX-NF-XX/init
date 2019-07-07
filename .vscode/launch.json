@@ -1,0 +1,44 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Test all files",
+      "env": { "WEB_PORT": "3033" }, // Customize env vars for current configuration
+      "args": [
+        "--runInBand"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "disableOptimisticBPs": true,
+      "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Test current file",
+      "env": { "WEB_PORT": "3033" },  // Customize env vars for current configuration
+      "args": [
+        "${fileBasenameNoExtension}",
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "disableOptimisticBPs": true,
+      "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug program",
+      "env": { "WEB_PORT": "3030", "NODE_ENV": "development" },  // Customize env vars for current configuration
+      "outputCapture": "std",
+      "smartStep": true,
+      "program": "${workspaceFolder}/src/index.js",
+    }
+  ]
+}
