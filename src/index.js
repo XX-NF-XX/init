@@ -1,10 +1,12 @@
 const fs = require('fs');
 
+const nodeEs = require('./nodeFeatures');
+
 /**
  * Fills obj with props like { op1: 1, op2: 2 ... op8: 8 }
  */
 function createObject(amount) {
-  // Param reassign feature
+  // Parameter reassign
   amount = ~~amount;
 
   const obj = {};
@@ -15,8 +17,13 @@ function createObject(amount) {
   return obj;
 }
 
-function test2({ op1, op2, op3, op4, op5, op6, op7, op8 }) {
+/**
+ * Prettier formatting
+ */
+function prettierFormat({ op1, op2, op3, op4, op5, op6, op7, op8 }) {
   const obj1 = { par1: op1, par2: op2, par3: op3, par4: op4, par5: op5, par6: op6, par7: op7 };
+  console.log(obj1);
+
   const obj2 = {
     par1: op1,
     par2: { op1, op2, op3 },
@@ -27,18 +34,21 @@ function test2({ op1, op2, op3, op4, op5, op6, op7, op8 }) {
     par7: op7,
     par8: op8,
   };
-
-  console.log(obj1);
   console.log(obj2);
 }
 
-function test() {
-  console.log(`Current file size: ${fs.statSync(__filename).size} bytes`);
+async function test() {
+  console.log(`Current file size: ${fs.statSync(__filename).size} bytes\n`);
 
-  // ES6 features
-  const map = new Map();
-  console.log(`Map size is: ${map.size}`);
+  console.group('Node ES features:');
 
+  await nodeEs.es2019();
+  await nodeEs.es2020();
+  await nodeEs.esNext();
+
+  console.groupEnd();
+
+  console.group('\nRules:');
   // Plus-plus features
   let x = 0;
   x++;
@@ -47,23 +57,28 @@ function test() {
 
   // Bitwise features
   const str = `${x}000`; // 1000
-  console.log(`typeof ~~str is ${typeof ~~str}`);
-  console.log(`value of ~~str is ${~~str}`);
+  console.log('typeof ~~str is', typeof ~~str);
+  console.log('value of ~~str is', ~~str);
 
   // Destructuring features
   const obj = createObject(8);
-  test2(obj);
+  prettierFormat(obj);
 
   // Use before defined feature
-  test3();
+  beforeDefined();
+
+  console.groupEnd();
 }
 
-function test3() {
-  console.log('Hello there!');
+function beforeDefined() {
+  console.log('Using before defined: Hello there!');
 }
 
-test();
+test()
+  .then(() => console.log('\nTest finished'))
+  .catch(err => console.error('\nSomething went wrong!', err));
 
 module.exports = {
   test,
+  createObject,
 };
