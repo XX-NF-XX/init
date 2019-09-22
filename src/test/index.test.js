@@ -1,9 +1,4 @@
-/* eslint-disable no-underscore-dangle */
-const rewire = require('rewire');
-
-// using rewire to get into private resources
-const indexRewire = rewire('../index.js');
-const createObject = indexRewire.__get__('createObject');
+const { createObject } = require('../index');
 
 describe('/index.js test', () => {
   describe('createObject()', () => {
