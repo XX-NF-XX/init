@@ -1,7 +1,11 @@
 /* eslint-disable max-classes-per-file */
 /* eslint-disable no-console */
 function fromEntries() {
-  const object = Object.fromEntries(new Map([['foo', 42], ['bar', 23]]));
+  const map = new Map([
+    ['foo', 42],
+    ['bar', 23],
+  ]);
+  const object = Object.fromEntries(map);
   return object.foo === 42 && object.bar === 23;
 }
 
@@ -19,7 +23,14 @@ function arrayFlat() {
 }
 
 function arrayFlatMap() {
-  return [{ a: 1, b: 2 }, { a: 3, b: 4 }].flatMap(it => [it.a, it.b]).join('') === '1234';
+  return (
+    [
+      { a: 1, b: 2 },
+      { a: 3, b: 4 },
+    ]
+      .flatMap(it => [it.a, it.b])
+      .join('') === '1234'
+  );
 }
 
 async function optionalCatch() {
@@ -145,13 +156,14 @@ function staticClassFields() {
 }
 
 function optionalChaining() {
-  const object = {
-    prop: 42,
-    func: () => 42,
-  };
-  const variable = null;
+  // N/A in node 12.x.x (available since 13.7.0 with harmony flag)
 
-  // N/A in node 12.10.0
+  // const object = {
+  //   prop: 42,
+  //   func: () => 42,
+  // };
+  // const variable = null;
+  //
   // return (
   //   object?.prop === 42 &&
   //   variable?.prop === undefined &&
