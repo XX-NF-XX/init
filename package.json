@@ -1,6 +1,6 @@
 {
   "name": "init",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "",
   "main": "./src/index.js",
   "scripts": {
@@ -11,24 +11,24 @@
   "author": "XX-NF-XX",
   "license": "ISC",
   "engines": {
-    "node": "^12.10.0"
-  },
-  "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/plugin-proposal-numeric-separator": "^7.2.0",
-    "@babel/plugin-syntax-bigint": "^7.4.4",
-    "babel-eslint": "^10.0.3",
-    "eslint": "^6.4.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-config-prettier": "^6.3.0",
-    "eslint-plugin-babel": "^5.3.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-node": "^10.0.0",
-    "eslint-plugin-prettier": "^3.1.1",
-    "jest": "^24.9.0",
-    "prettier": "^1.18.2"
+    "node": "^12.16.1"
   },
   "dependencies": {},
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-numeric-separator": "^7.8.3",
+    "@babel/plugin-syntax-bigint": "^7.8.3",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1"
+  },
   "babel": {
     "plugins": [
       "@babel/plugin-proposal-numeric-separator",
